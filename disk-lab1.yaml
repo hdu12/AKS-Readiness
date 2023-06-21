@@ -1,0 +1,24 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mypod1
+  namespace: bo
+spec:
+  containers:
+  - name: test-pod1
+    image: mcr.microsoft.com/oss/nginx/nginx:stable
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "/mnt/azure"
+      name: volume                              #需要修改
+  volumes:
+  - name: volume                                #需要修改
+    persistentVolumeClaim:
+      claimName: log-azurefile                  #需要修改
+#请以Blobfuse, Azure File share, Azure Disk的形式将永久性存储挂载至pod的 /mnt/azure路径, 保证pod运行并且在Azure存储中能看到文件
