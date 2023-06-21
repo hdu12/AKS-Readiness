@@ -2,6 +2,7 @@ kind: Pod
 apiVersion: v1
 metadata:
   name: mypod1
+  namespace: test                              #请注意有namespace
 spec:
   containers:
   - name: test-pod1
