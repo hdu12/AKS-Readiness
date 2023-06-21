@@ -22,3 +22,4 @@ spec:
     persistentVolumeClaim:
       claimName: log-azurefile                  #需要修改
 #请以Blobfuse, Azure File share, Azure Disk的形式将永久性存储挂载至pod的 /mnt/azure路径, 保证pod运行并且在Azure存储中能看到文件
+#请分别使用Statically 以及Dynamically 形式挂载, 最终会有6个Pod
